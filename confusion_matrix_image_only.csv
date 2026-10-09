@@ -1,0 +1,7 @@
+,Mpox,Chickenpox,Measles,Cowpox,HFMD,Healthy
+Mpox,50,3,1,0,1,2
+Chickenpox,3,11,0,0,0,1
+Measles,0,0,11,0,0,0
+Cowpox,2,0,0,11,0,0
+HFMD,2,0,0,0,30,0
+Healthy,4,0,0,0,2,17

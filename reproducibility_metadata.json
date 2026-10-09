@@ -1,0 +1,28 @@
+{
+  "symptom_input_dimensionality": 12,
+  "feature_order": [
+    "fever",
+    "lymphadenopathy",
+    "headache",
+    "muscle_ache",
+    "fatigue",
+    "cough",
+    "conjunctivitis",
+    "mouth_ulcers",
+    "travel_or_contact_history",
+    "animal_contact",
+    "rash_multistage",
+    "age_years"
+  ],
+  "symptom_generator_seed": 42,
+  "pairing_rng_seed": 0,
+  "training_seed": 42,
+  "symptom_records": 600,
+  "records_per_class": 100,
+  "paired_images": 755,
+  "train_images": 513,
+  "validation_images": 91,
+  "test_images": 151,
+  "unique_symptom_records_used": 441,
+  "sampling": "class-conditional sampling with replacement when images exceed 100 records"
+}
