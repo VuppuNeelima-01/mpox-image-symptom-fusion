@@ -44,3 +44,15 @@ The sample-level predictions are the authoritative source for checking accuracy,
 
 ## Important scope note
 The symptom data are synthetic, and image records are paired with class-conditional synthetic symptom records rather than real patient-linked clinical observations. This package documents that procedure explicitly so the reported numerical results can be reproduced and audited.
+### Statistical Reproducibility
+
+The repository includes a script for reproducing the paired statistical analyses using the saved test-set predictions.
+
+**Files**
+- `reproduce_paired_statistics.py`: computes paired model comparisons and bootstrap confidence intervals.
+- `paired_statistics_results.txt`: records the resulting statistics.
+- `per_sample_predictions.csv`: contains the saved test-set predictions used for the analysis.
+
+**Reproducibility note:** These analyses use saved predictions from a fixed test split. They do not independently reproduce model training or establish patient-level generalization. The symptoms are synthetically generated using class-conditioned distributions, and the results should be interpreted as a simulation-based feasibility study.
+
+Run the script using Python with the dependencies specified in the repository.
