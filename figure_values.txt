@@ -1,0 +1,22 @@
+FIGURE 2 counts from train_val_test_indices.csv
+Mpox=284, HFMD=161, Healthy=114, Chickenpox=75, Cowpox=66, Measles=55
+
+FIGURE 5 probabilities from class_conditional_probabilities.csv; age_years_mean excluded from the 11-indicator heatmap.
+
+FIGURE 7 aggregate metrics from per_sample_predictions.csv
+Image-only: Accuracy=0.860927, Precision=0.880191, Recall=0.855552, F1=0.865507
+Symptom-only: Accuracy=0.907285, Precision=0.902534, Recall=0.837737, F1=0.861584
+Fusion: Accuracy=0.966887, Precision=0.969000, Recall=0.952785, F1=0.960395
+
+FIGURE 8 class-wise F1 values from saved predictions
+Chickenpox: Image-only=0.758621, Symptom-only=0.866667, Fusion=0.965517
+Cowpox: Image-only=0.916667, Symptom-only=0.666667, Fusion=0.960000
+HFMD: Image-only=0.923077, Symptom-only=0.937500, Fusion=0.953846
+Healthy: Image-only=0.790698, Symptom-only=0.956522, Fusion=1.000000
+Measles: Image-only=0.956522, Symptom-only=0.800000, Fusion=0.909091
+Mpox: Image-only=0.847458, Symptom-only=0.942149, Fusion=0.973913
+
+FIGURE 9 Wilson 95% confidence intervals
+Image-only 130/151 (86.09%): 130/151=0.86092715; CI=0.79674071–0.90720513
+Symptom-only 137/151 (90.73%): 137/151=0.90728477; CI=0.85039362–0.94396727
+Fusion 146/151 (96.69%): 146/151=0.96688742; CI=0.92483388–0.98577495
