@@ -79,3 +79,5 @@ python reproduce_paired_statistics.py --predictions per_sample_predictions.csv -
 The analysis uses saved predictions from a fixed test split. It does not retrain the models or establish patient-level generalization.
 
 The image dataset and trained model weights are not included in this repository.
+
+Figure note: Figure_9_Wilson_CI.png is the confidence-interval figure used in the revised manuscript. Figure_9_Corrected_History.csv is a separate legacy training-history file; it is not used to support the current Figure 9.
