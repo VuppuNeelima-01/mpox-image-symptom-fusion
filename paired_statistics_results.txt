@@ -1,0 +1,21 @@
+Artifact checks: correctness flags and all three confusion matrices match the prediction CSV.
+Audited file: per_sample_predictions.csv
+Rows: 151; labels: Chickenpox, Cowpox, HFMD, Healthy, Measles, Mpox
+
+Overall model metrics (macro metrics use the unweighted mean across labels):
+image_only: 130/151=86.092715%; macro-P=0.880191; macro-R=0.855552; macro-F1=0.865507; Wilson95=[79.674071%, 90.720513%]
+symptom_only: 137/151=90.728477%; macro-P=0.902534; macro-R=0.837737; macro-F1=0.861584; Wilson95=[85.039362%, 94.396727%]
+fusion: 146/151=96.688742%; macro-P=0.969000; macro-R=0.952785; macro-F1=0.960395; Wilson95=[92.483388%, 98.577495%]
+
+Exact two-sided McNemar tests on paired correctness indicators:
+fusion vs image_only: fusion-only-correct=20; comparator-only-correct=4; exact two-sided p=0.0015438795
+fusion vs symptom_only: fusion-only-correct=10; comparator-only-correct=1; exact two-sided p=0.0117187500
+
+Paired class-stratified percentile bootstrap: B=20000; seed=42
+Rows are resampled within each true class; identical sampled rows are used across models.
+fusion - image-only accuracy: observed=10.596026 percentage points; 95% CI [4.635762, 16.556291]; bootstrap mean=10.560927
+fusion - image-only macro_f1: observed=0.094888 macro-F1 units; 95% CI [0.033686, 0.158775]; bootstrap mean=0.094942
+fusion - symptom-only accuracy: observed=5.960265 percentage points; 95% CI [1.986755, 9.933775]; bootstrap mean=5.976689
+fusion - symptom-only macro_f1: observed=0.098811 macro-F1 units; 95% CI [0.042734, 0.168287]; bootstrap mean=0.100956
+
+Interpretation: all statistics are conditional on the saved fixed test split. They do not establish patient-level generalization, clinical utility, or independent multimodal benefit.
