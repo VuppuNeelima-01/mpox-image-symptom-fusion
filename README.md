@@ -56,3 +56,26 @@ The repository includes a script for reproducing the paired statistical analyses
 **Reproducibility note:** These analyses use saved predictions from a fixed test split. They do not independently reproduce model training or establish patient-level generalization. The symptoms are synthetically generated using class-conditioned distributions, and the results should be interpreted as a simulation-based feasibility study.
 
 Run the script using Python with the dependencies specified in the repository.
+
+
+## Statistical Reproducibility
+
+The repository includes `reproduce_paired_statistics.py`, which verifies the saved predictions, confusion matrices, Wilson 95% confidence intervals, exact McNemar tests, and paired bootstrap confidence intervals.
+
+### How to run
+
+Install the required Python libraries:
+
+```bash
+pip install numpy pandas scipy statsmodels
+```
+
+Run from the repository root:
+
+```bash
+python reproduce_paired_statistics.py --predictions per_sample_predictions.csv --bootstrap 20000 --seed 42
+```
+
+The analysis uses saved predictions from a fixed test split. It does not retrain the models or establish patient-level generalization.
+
+The image dataset and trained model weights are not included in this repository.
