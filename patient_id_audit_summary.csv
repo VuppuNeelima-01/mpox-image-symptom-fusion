@@ -1,0 +1,14 @@
+metric,value,interpretation
+image_rows_audited,755,Rows in image_to_synthetic_pairing.csv
+unparsed_image_paths,0,Expected zero under the filename parser
+unique_filename_derived_candidate_patient_keys,524,"Candidate keys, not independently verified patient IDs"
+candidate_keys_crossing_any_partitions,67,Keys appearing in more than one partition
+candidate_keys_train_and_test,45,May also occur in validation
+candidate_keys_train_and_validation,28,May also occur in test
+candidate_keys_validation_and_test,16,May also occur in train
+candidate_keys_in_all_three_partitions,11,Keys appearing in all three partitions
+test_image_rows,151,Test rows in pairing file
+test_images_with_candidate_key_in_other_partition,61,Test images whose candidate key appears in at least one other partition
+test_images_with_candidate_key_in_train,56,May overlap with validation category
+test_images_with_candidate_key_in_validation,19,May overlap with train category
+unique_candidate_keys_in_test,137,Distinct candidate keys among test rows

@@ -44,6 +44,7 @@ The sample-level predictions are the authoritative source for checking accuracy,
 
 ## Important scope note
 The symptom data are synthetic, and image records are paired with class-conditional synthetic symptom records rather than real patient-linked clinical observations. This package documents that procedure explicitly so the reported numerical results can be reproduced and audited.
+
 ### Statistical Reproducibility
 
 The repository includes a script for reproducing the paired statistical analyses using the saved test-set predictions.
@@ -56,7 +57,6 @@ The repository includes a script for reproducing the paired statistical analyses
 **Reproducibility note:** These analyses use saved predictions from a fixed test split. They do not independently reproduce model training or establish patient-level generalization. The symptoms are synthetically generated using class-conditioned distributions, and the results should be interpreted as a simulation-based feasibility study.
 
 Run the script using Python with the dependencies specified in the repository.
-
 
 ## Statistical Reproducibility
 
@@ -81,3 +81,23 @@ The analysis uses saved predictions from a fixed test split. It does not retrain
 The image dataset and trained model weights are not included in this repository.
 
 Figure note: Figure_9_Wilson_CI.png is the confidence-interval figure used in the revised manuscript. Figure_9_Corrected_History.csv is a separate legacy training-history file; it is not used to support the current Figure 9.
+
+
+## Filename-derived candidate patient-key audit
+
+The repository also includes:
+- `patient_id_audit.py`: script to parse candidate patient keys and audit partition overlap.
+- `patient_id_audit_per_image.csv`: per-image filename-derived key and partition-membership results.
+- `patient_id_audit_per_class.csv`: class-level counts of candidate keys and partition overlap.
+- `patient_id_audit_summary.csv`: overall audit counts.
+
+Run from the repository root:
+
+```bash
+pip install pandas
+python patient_id_audit.py --pairing image_to_synthetic_pairing.csv
+```
+
+The audit parses the dataset's published filename convention `DiseaseCode_PatientNumber_ImageNumber` from the 755 paths in `image_to_synthetic_pairing.csv`. It identifies 524 filename-derived candidate patient keys, of which 67 occur in more than one split. Of 151 test image rows, 61 have a candidate key that also appears in another partition (56 occur in training and 19 in validation; these categories overlap). The shared-key partition patterns are 34 train/test, 17 train/validation, 5 validation/test, and 11 in all three.
+
+**Interpretation limitation:** These are filename-derived candidate keys, not independently verified patient identifiers. The 524 parsed keys do not reconcile with the 541 unique patients reported by the dataset source. Accordingly, this audit documents possible patient overlap in the existing image-level split; it does not establish patient-disjoint evaluation or patient-level generalization. A patient-disjoint retraining/evaluation was not performed.

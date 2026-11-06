@@ -1,0 +1,7 @@
+class,image_rows,unique_candidate_patient_keys,candidate_keys_crossing_partitions,image_rows_with_candidate_key_crossing_partitions,test_image_rows,test_images_with_candidate_key_in_other_partition
+Chickenpox,75,61,7,17,15,6
+Cowpox,66,41,4,20,13,2
+HFMD,161,141,9,24,32,6
+Healthy,114,103,3,10,23,3
+Measles,55,45,4,9,11,1
+Mpox,284,133,40,156,57,43
